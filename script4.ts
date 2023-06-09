@@ -1,45 +1,84 @@
-function spinWords(sentence: string): string {
-  let result = "";
+function split(original:string, separator:string):string[]{
+  let result:string[] =[]
+  let word=""
 
-  let i = 0;
-  while (sentence[i] !== undefined) {
-    let count = 0;
-    let ci = i;
-    while (sentence[ci] !== undefined && sentence[ci] !== " ") {
-      count += 1;
-      ci += 1;
-    }
-    if (count === 0) {
-      result += " ";
-      i += 1;
-    } else if (count < 5) {
-      let word = "";
-      while (sentence[i] !== undefined && sentence[i] !== " ") {
-        word += word[i];
-        i += 1;
+  let i=0
+  while(original[i] !== undefined){
+      if(original[i] !== separator){
+          word += original[i]
       }
-    } else {
-      let word = "";
-      let si = i;
-      let ri = 0;
-      while (sentence[si] !== undefined && sentence[si] !== " ") {
-        word += sentence[i + count - ri - 1];
-        ri += 1;
-        si += 1;
+      else {
+          result = [...result, word]
+          word = ""
       }
-      result += word;
-      i += count;
-    }
+      i += 1
   }
-  return result;
+  result = [...result, word]
+
+  return result
 }
 
-let result1: string = spinWords("Hey fellow warriors");
-let result2: string = spinWords("This is a test");
-let result3: string = spinWords("This is another test");
+function join(original:string[], separator:string):string{
+  let result = ""
+  
+      let i = 0
+      while(original[i] !== undefined){
+          result += original[i]
+          if(original[i+1] !== undefined){
+          result += separator
+          }
+          i += 1
+      }
+  
+  return result
+}
 
-console.log(result1);
-console.log(result2);
-console.log(result3);
+function getLength(str: string):number{
+  let count = 0
+  while(str[count] !== undefined){
+      count += 1
+  }
+  return count
+}
 
-export {};
+function reverse(word: string):string{
+  let result = ""
+  let wordLength = getLength(word)
+
+  let i = wordLength-1
+  while(i >= 0){
+       result += word[i]
+       i -= 1 
+  }
+  return result
+}
+
+
+function spinWords(words:string): string{
+  let wordsArray: string[] = split(words, " ")
+  let finalArray: string[] = []
+  let result=""
+
+  let i = 0
+  while(wordsArray[i] !== undefined){
+      if(getLength(wordsArray[i]) > 4 ){
+          let reversedWord = reverse(wordsArray[i])
+          finalArray = [...finalArray, reversedWord]
+      }
+      else {
+          finalArray = [...finalArray, wordsArray[i]]
+      }
+  i += 1
+  }
+  result = join(finalArray, " ")
+return result
+}
+
+let finalResult1: string = spinWords("Hey alma fellow warriors")
+let finalResult2: string = spinWords("Brutal warriors are brutals")
+let finalResult3: string = spinWords("Why are you serious?")
+
+
+console.log(finalResult1)
+console.log(finalResult2)
+console.log(finalResult3)
