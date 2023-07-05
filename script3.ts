@@ -11,6 +11,8 @@ function multiples35(number: number): number {
       return sum
 }
   
+  
+
   let result1: number = multiples35(10); 
   let result2: number = multiples35(23); 
   let result3: number = multiples35(42); 
