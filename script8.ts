@@ -7,7 +7,9 @@
 function triangleType(a: number, b: number, c: number): number {
 let shortest = (a <= b && a <= c) ? a : (b <= a && b <= c) ? b : c
 let longest = (a >= b && a >= c) ? a : (b >= a && b >= c) ? b : c
-let middle = (a !== shortest && a !== longest) ? a : (b !== shortest && b !== longest) ? b : c
+let middle = (a >= b && a <= c || a >= c && a <= b) ? a : (b >= a && b <= c || b >= c && b <= a ) ? b : c
+
+console.log(a, b, c , shortest, longest, middle)
 
 return (shortest + middle <= longest) ? 0 : (shortest*shortest + middle * middle === longest * longest) ? 2 : (shortest * shortest + middle * middle < longest * longest) ? 3 : 1
 }
