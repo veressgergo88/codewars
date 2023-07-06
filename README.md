@@ -129,3 +129,60 @@ Examples
    942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+----------------------------------------------------------------------------------------------
+script13.ts
+Don't give me five!
+In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+
+Examples:
+
+1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+The result may contain fives. ;-)
+The start number will always be smaller than the end number. Both numbers can be also negative!
+
+I'm very curious for your solutions and the way you solve it. Maybe someone of you will find an easy pure mathematics solution.
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
+--------------------------------------------------------------------------------------------
+script14.ts
+Linked Lists - Get Nth
+Implement a GetNth() function that takes a linked list and an integer index and returns the node stored at the Nth index position. GetNth() uses the C numbering convention that the first node is index 0, the second is index 1, ... and so on.
+
+So for the list 42 -> 13 -> 666, GetNth(1) should return Node(13);
+
+getNth(1 -> 2 -> 3 -> null, 0).data === 1
+getNth(1 -> 2 -> 3 -> null, 1).data === 2
+The index should be in the range [0..length-1]. If it is not, or if the list is empty, GetNth() should throw/raise an exception (ArgumentException in C#, InvalidArgumentException in PHP, Exception in Java).
+----------------------------------------------------------------------------------------
+script15.ts
+You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
+
+For example:
+
+Let's say you are given the array {1,2,3,4,3,2,1}:
+Your function will return the index 3, because at the 3rd position of the array, the sum of left side of the index ({1,2,3}) and the sum of the right side of the index ({3,2,1}) both equal 6.
+
+Let's look at another one.
+You are given the array {1,100,50,-51,1,1}:
+Your function will return the index 1, because at the 1st position of the array, the sum of left side of the index ({1}) and the sum of the right side of the index ({50,-51,1,1}) both equal 1.
+
+Last one:
+You are given the array {20,10,-80,10,10,15,35}
+At index 0 the left side is {}
+The right side is {10,-80,10,10,15,35}
+They both are equal to 0 when added. (Empty arrays are equal to 0 in this problem)
+Index 0 is the place where the left side and right side are equal.
+
+Note: Please remember that in most programming/scripting languages the index of an array starts at 0.
+
+Input:
+An integer array of length 0 < arr < 1000. The numbers in the array can be any integer positive or negative.
+
+Output:
+The lowest index N where the side to the left of N is equal to the side to the right of N. If you do not find an index that fits these rules, then you will return -1.
+
+Note:
+If you are given an array with multiple answers, return the lowest correct index.

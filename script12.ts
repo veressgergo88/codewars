@@ -1,8 +1,9 @@
-export const digitalRoot = (n:number):number => {
-    
+const digitalRoot = (n:number):number => {
+    let stringArray =
+
     
     return 0
-  };
+}
 
 let result1: number = digitalRoot(16)
 let result2: number = digitalRoot(456)
