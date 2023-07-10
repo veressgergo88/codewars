@@ -1,27 +1,25 @@
 const digitalRoot = (n: number): number => {
-    let convertBackAndForth = (number: number): number[] => {
-        let numConvStr: string = "" + number
-        let stringNumArray: string[] = []
-        let numberArray: number[] = []
-
+    let convertBackAndForth = (number:number):number[] => {
+        let numConvStr = "" + number
+        let stringNumArray:string[] = []
+        let numberArray:number[] = []
+    
         let stringNumIndex = 0
-        while (stringNumArray[stringNumIndex] !== undefined) {
+        while (numConvStr[stringNumIndex] !== undefined) {
             stringNumArray = [...stringNumArray, numConvStr[stringNumIndex]]
             stringNumIndex++
         }
-
         let convertIndex = 0
         let stringNumber = ""
         while (stringNumArray[convertIndex] !== undefined) {
             stringNumber = stringNumArray[convertIndex]
-                + stringNumber
             numberArray = [...numberArray, +stringNumber]
             convertIndex++
         }
         return numberArray
     }
 
-    let sum = (array: number[]): number => {
+    let sum = (array:number[]):number => {
         let sumofArray = 0
         let indexOfArray = 0
         while (array[indexOfArray] !== undefined) {
@@ -31,12 +29,25 @@ const digitalRoot = (n: number): number => {
         return sumofArray
     }
 
-    let i = 0
-    while()
+let focusNumber = n
+let focusNumArray = convertBackAndForth(focusNumber)
+let arraySum = sum(focusNumArray)
 
-    if()
+let numLenght = 0
+while(focusNumArray[numLenght] !== undefined){
+    numLenght++
+}
 
-    return 0
+while(numLenght > 1){
+    focusNumber = arraySum
+    focusNumArray = convertBackAndForth(focusNumber)
+    arraySum = sum(focusNumArray)
+    numLenght = 0
+    while(focusNumArray[numLenght] !== undefined){
+        numLenght++
+    }
+}
+    return arraySum
 }
 
 let result1: number = digitalRoot(16)
