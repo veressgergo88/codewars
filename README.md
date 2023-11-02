@@ -342,7 +342,16 @@ XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false
 ------------------------------------------------------------------------------------------------
 script26.ts
+Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
 
+Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+Examples: (Input --> Output)
+
+[] --> []
+["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
 ------------------------------------------------------------------------------------------------
 script27.ts
 Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.

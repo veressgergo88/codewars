@@ -3,16 +3,15 @@ export function persistence(num: number): number {
     let numArray: number[] = []
     let count:number = 0
     
-    let i = 0
-    while (i < str.length) {
-        numArray = [...numArray, parseInt(str[i])]
-        let newNumber = numArray.reduce((result, number) =>{
-            return result * number
-        }, 1)
-        str = newNumber.toString()
-        if(str.length > 1)
-            count++
-        i = 0
+    while (str.length !== 1) {
+        let i = 0
+        while(str[i] !== undefined){
+            numArray = [...numArray, parseInt(str[i])]
+            i++
+        }
+        str = numArray.reduce((acc, current) => acc *= current).toString()
+        count++
+        numArray = []
     }
     
     return count
